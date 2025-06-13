@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ドリンク選択画面</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-bar">
+    <div class="step active"></div>
+    <div class="bar"></div>
+    <div class="step active"></div>
+    <div class="bar"></div>
+    <div class="step inactive"></div>
+    <div class="bar"></div>
+    <div class="step inactive"></div>
+  </div>
+  <div class="center-box">
+    <div class="drinks">
+      <div class="drink">
+        <svg width="70" height="100" viewBox="0 0 70 100">
+          <!-- コップ外枠（上部膨らみなし） -->
+          <polygon points="10,22 60,22 50,85 20,85" fill="#f8f8f8" stroke="#bbb" stroke-width="2"/>
+          <!-- コーヒー液体（コップ内）: 枠より内側の台形 -->
+          <polygon points="15,27 55,27 47,82 23,82" fill="#6b4f28"/>
+          <!-- 液面ハイライト -->
+          <rect x="27" y="30" width="16" height="3" rx="1.5" fill="#fff" opacity="0.3"/>
+          <!-- グラスハイライト -->
+          <rect x="24" y="28" width="4" height="45" rx="2" fill="#fff" opacity="0.2"/>
+          <!-- 影 -->
+          <ellipse cx="35" cy="95" rx="18" ry="5" fill="#bbb" opacity="0.2"/>
+        </svg>
+        <div class="drink-label">Coffee<br><span>コーヒー</span></div>
+      </div>
+      <div class="drink">
+        <svg width="70" height="100" viewBox="0 0 70 100">
+          <!-- コップ外枠（上部膨らみなし） -->
+          <polygon points="10,22 60,22 50,85 20,85" fill="#f8f8f8" stroke="#bbb" stroke-width="2"/>
+          <!-- ラテ下層（コーヒー）: 枠より内側の台形 -->
+          <polygon points="18,62 52,62 46,80 24,80" fill="#bfa77a"/>
+          <!-- ラテ上層（ミルクフォーム）: 枠より内側の台形 -->
+          <polygon points="15,27 55,27 51,62 19,62" fill="#fffbe8"/>
+          <!-- ラテアート（ハート）: y座標を下げて内側に -->
+          <path d="M35 36 Q37 28 42 32 Q45 36 35 44 Q25 36 28 32 Q33 28 35 36" fill="#f5e6c8"/>
+          <!-- 液面ハイライト -->
+          <rect x="27" y="30" width="16" height="3" rx="1.5" fill="#fff" opacity="0.3"/>
+          <!-- グラスハイライト -->
+          <rect x="24" y="28" width="4" height="45" rx="2" fill="#fff" opacity="0.2"/>
+          <!-- 影 -->
+          <ellipse cx="35" cy="95" rx="18" ry="5" fill="#bbb" opacity="0.2"/>
+        </svg>
+        <div class="drink-label">Latte<br><span>カフェラテ</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-buttons">
+    <button class="circle-btn blinking" onclick="activateBtn(this)"></button>
+    <button class="circle-btn disabled" onclick="activateBtn(this)"></button>
+    <button class="circle-btn blinking" onclick="activateBtn(this)"></button>
+  </div>
+  <script>
+    function activateBtn(btn) {
+      // すべてのボタンからactive, blinkingクラスを外す
+      document.querySelectorAll('.circle-btn').forEach(b => {
+        b.classList.remove('active');
+        b.classList.remove('blinking');
+      });
+      // disabledでなければactiveクラスを付与
+      if (!btn.classList.contains('disabled')) {
+        btn.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

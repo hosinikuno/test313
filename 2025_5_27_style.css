@@ -1,0 +1,104 @@
+body {
+  background: #111;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.progress-bar {
+  display: flex;
+  align-items: center;
+  margin: 40px 0 30px 0;
+}
+.step {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #888;
+}
+.step.active {
+  background: #fff;
+  border-color: #fff;
+  animation: blink 0.8s infinite alternate;
+}
+.step.inactive {
+  background: #666;
+  border-color: #666;
+}
+.bar {
+  width: 40px;
+  height: 4px;
+  background: #888;
+}
+.center-box {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.drinks {
+  display: flex;
+  gap: 60px;
+}
+.drink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.drink-label {
+  margin-top: 16px;
+  font-size: 1.1em;
+  color: #222;
+  text-align: center;
+}
+.drink-label span {
+  font-size: 0.9em;
+  color: #888;
+}
+.bottom-buttons {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+}
+.circle-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #666;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+  animation: none;
+}
+.circle-btn.blinking {
+  animation: border-blink-weak 1.5s infinite alternate;
+}
+.circle-btn.active {
+  animation: none;
+  background: #666;
+  box-shadow: 0 0 32px 8px #fff, 0 2px 8px rgba(0,0,0,0.15);
+}
+.circle-btn.disabled {
+  background: #666;
+  cursor: default;
+  animation: none;
+}
+@keyframes blink-strong {
+  from { opacity: 1; box-shadow: 0 0 0px #fff, 0 2px 8px rgba(0,0,0,0.15); }
+  to { opacity: 0.2; box-shadow: 0 0 32px #fff, 0 2px 8px rgba(0,0,0,0.15); }
+}
+@keyframes border-blink-weak {
+  from { box-shadow: 0 0 0px 4px #fff, 0 2px 8px rgba(0,0,0,0.15); }
+  to { box-shadow: 0 0 12px 4px #fff, 0 2px 8px rgba(0,0,0,0.15); }
+}
+@keyframes border-blink-strong {
+  from { box-shadow: 0 0 0px 4px #fff, 0 2px 8px rgba(0,0,0,0.15); }
+  to { box-shadow: 0 0 32px 8px #fff, 0 2px 8px rgba(0,0,0,0.15); }
+}
